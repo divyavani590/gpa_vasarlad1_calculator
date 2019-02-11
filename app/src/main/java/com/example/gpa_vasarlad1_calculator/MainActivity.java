@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 String grade = "";
                 Double gradeValue;
 
-
+                ConstraintLayout layout =  findViewById(R.id.parentLayout);
                 String First = FirstEditText.getText().toString().trim();
                 String Second = SecondEditText.getText().toString().trim();
                 String Third = ThirdEditText.getText().toString().trim();
@@ -110,6 +110,17 @@ public class MainActivity extends AppCompatActivity {
                 String Fifth = FifthEditText.getText().toString().trim();
 
                 // Start NewActivity.class
+
+                if(button.getText() == "Clear Form"){
+                    FirstEditText.setText("");
+                    SecondEditText.setText("");
+                    ThirdEditText.setText("");
+                    FourthEditText.setText("");
+                    FifthEditText.setText("");
+                    Output.setText("");
+                    layout.setBackgroundColor(Color.TRANSPARENT);
+                    return;
+                }
 
                 Boolean isValid = true;
                 if(FirstEditText.length() == 0)
@@ -219,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     grade = "F";
                 }
                 Output.setText(grade);
-                ConstraintLayout layout =  findViewById(R.id.parentLayout);
+
                 if(percentage < 60)
                 {
                     layout.setBackgroundColor(Color.RED);
